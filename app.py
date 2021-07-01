@@ -1,7 +1,10 @@
 import os
+import sqlite3
 from flask import (
     Flask, flash, render_template,
-    redirect, request, session, url_for)
+    redirect, request, session, url_for,
+    current_app, g)
+from flask.cli import with_appcontext
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 if os.path.exists("env.py"):
@@ -16,6 +19,14 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
+def get_db():
+    if "db" not in g:
+        g.db = sqlite3.connect(
+            "sqlite.db", detect_types=sqlite3.PARSE_DECLTYPES
+        )
+        g.db.row_factory = sqlite3.Row
+
+    return g.db
 
 @app.route("/")
 @app.route("/get_items")
