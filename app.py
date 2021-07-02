@@ -110,6 +110,25 @@ def profile(username):
 
     return redirect(url_for("login"))
 
+@app.route("/logout")
+def logout():
+    # remove user from session cookie
+    flash("You have been logged out")
+    session.pop("user")
+    return redirect(url_for("login"))
+
+
+@app.route("/add_item", methods=["GET", "POST"])
+def add_item():
+    if request.method == "POST":
+        item = {
+            "item_name": request.form.get("item_name")}
+        mongo.db.items.insert_one(item)
+        flash("Item Successfully Added")
+        return redirect(url_for("get_items"))
+
+    return render_template("add_item.html")
+
 
 
 if __name__ == "__main__":

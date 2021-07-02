@@ -1,11 +1,25 @@
 {% extends "base.html" %}
 {% block content %}
 <h1>Shopping List</h1>
-    {% for item in items %}
-        {{ item.item_name }}<br>
-        {{ item.list_name }}<br>
-        {{ item.is_bought }}<br>
-        {{ item.due_date }}
-    {% endfor %}
+    
+    <div class="list-group">
+        {% for item in items %}
+        <label class="list-group-item">
+          <input class="form-check-input me-1" type="checkbox" value="">
+          {{ item.item_name }}
+        </label>
+        {% endfor %}
+
+    <form method="POST" action="{{ url_for('add_item') }}">
+        <div class="mb-3">
+            <div class="input-field col s12">
+                <input id="item_name" name="item_name" minlength="5" maxlength="50"
+                    type="text" class="validate" required>
+                <label for="item_name">New Item Name</label>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">New Item</button>
+      </form>
+
 
 {% endblock %}
