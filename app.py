@@ -136,6 +136,13 @@ def delete_item(item_id):
     flash("item Successfully Deleted")
     return redirect(url_for("get_items"))
 
+
+@app.route("/delete_all/<item_id>")
+def delete_all(item_id):
+    mongo.db.items.delete_many({"_id": ObjectId(item_id)})
+    flash("item Successfully Deleted")
+    return redirect(url_for("get_items"))
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

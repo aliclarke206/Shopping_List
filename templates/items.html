@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
 <h1>Shopping List</h1>
-    
 <div class="row">
     <div class="list-group">
         {% for item in items %}
@@ -17,13 +16,14 @@
     <form method="POST" action="{{ url_for('add_item') }}">
         <div class="mb-3">
             <div class="input-field col s12">
-                <input id="item_name" name="item_name" maxlength="50"
+                <input id="item_name" name="item_name" placeholder="New Item Name" maxlength="50"
                     type="text" class="validate" required>
-                <label for="item_name">New Item Name</label>
+                <label for="item_name"></label>
             </div>
         </div>
         <button type="submit" class="btn btn-primary">New Item</button>
       </form>
+
 
 
 {% endblock %}
