@@ -37,6 +37,7 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
+
 @app.route("/")
 @app.route("/get_items")
 def get_items():
@@ -69,8 +70,7 @@ def register():
     return render_template("register.html")
 
 
-
-@app.route("/login")
+@app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
         # check if username exists in db
@@ -122,7 +122,8 @@ def logout():
 def add_item():
     if request.method == "POST":
         item = {
-            "item_name": request.form.get("item_name")}
+            "item_name": request.form.get("item_name"),
+            "created_by": session["user"]}
         mongo.db.items.insert_one(item)
         flash("Item Successfully Added")
         return redirect(url_for("get_items"))
@@ -132,7 +133,7 @@ def add_item():
 
 @app.route("/delete_item/<item_id>")
 def delete_item(item_id):
-    mongo.db.items.remove({"_id": ObjectId(item_id)})
+    mongo.db.items.delete_one({"_id": ObjectId(item_id)})
     flash("item Successfully Deleted")
     return redirect(url_for("get_items"))
 
