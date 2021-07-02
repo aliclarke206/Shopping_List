@@ -17,4 +17,10 @@ body {
 
 .flashes {
     margin: 0;
+    text-align: center;
+}
+
+/* ----------------------------------------Add item */
+.add_item button{
+    display: inline;
 }

@@ -134,14 +134,14 @@ def add_item():
 @app.route("/delete_item/<item_id>")
 def delete_item(item_id):
     mongo.db.items.delete_one({"_id": ObjectId(item_id)})
-    flash("item Successfully Deleted")
+    flash("Item Successfully Deleted")
     return redirect(url_for("get_items"))
 
 
 @app.route("/delete_all/<item_id>")
 def delete_all(item_id):
     mongo.db.items.delete_many({"_id": ObjectId(item_id)})
-    flash("item Successfully Deleted")
+    flash("Item Successfully Deleted")
     return redirect(url_for("get_items"))
 
 if __name__ == "__main__":

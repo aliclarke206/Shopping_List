@@ -13,19 +13,17 @@
     </div>
     {% endif %}
     {% endfor %}
-        </div>
+</div>
 
     <form method="POST" action="{{ url_for('add_item') }}">
-        <div class="mb-3">
-            <div class="input-field col s12">
+        <div class="mb-3 add_item">
                 <input id="item_name" name="item_name" placeholder="Add New Item" maxlength="50"
                     type="text" class="validate" required>
                 <label for="item_name"></label>
-            </div>
+            <button type="submit" class="btn btn-primary">New Item</button>
         </div>
-        <button type="submit" class="btn btn-primary">New Item</button>
+
       </form>
-
-
+    
 
 {% endblock %}
