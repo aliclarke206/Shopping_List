@@ -127,9 +127,14 @@ def add_item():
         flash("Item Successfully Added")
         return redirect(url_for("get_items"))
 
-    return render_template("add_item.html")
+    return render_template("items.html")
 
 
+@app.route("/delete_item/<item_id>")
+def delete_item(item_id):
+    mongo.db.items.remove({"_id": ObjectId(item_id)})
+    flash("item Successfully Deleted")
+    return redirect(url_for("get_items"))
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),

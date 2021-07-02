@@ -2,18 +2,22 @@
 {% block content %}
 <h1>Shopping List</h1>
     
+<div class="row">
     <div class="list-group">
         {% for item in items %}
         <label class="list-group-item">
           <input class="form-check-input me-1" type="checkbox" value="">
           {{ item.item_name }}
+          <span><a class="btn btn-primary position-absolute top-0 end-0" href="{{ url_for('delete_item', item_id=item._id) }}" role="button">Delete</a></span>
         </label>
-        {% endfor %}
+    </div>
+    {% endfor %}
+        </div>
 
     <form method="POST" action="{{ url_for('add_item') }}">
         <div class="mb-3">
             <div class="input-field col s12">
-                <input id="item_name" name="item_name" minlength="5" maxlength="50"
+                <input id="item_name" name="item_name" maxlength="50"
                     type="text" class="validate" required>
                 <label for="item_name">New Item Name</label>
             </div>
