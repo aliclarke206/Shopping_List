@@ -2,30 +2,48 @@
 {% block content %}
 <h1>Shopping List</h1>
 <div class="container">
-<div class="row">
-    <div class="list-group">
+    <ul class="collection with-header">
+        <li class="collection-header"><h4>Shopping List</h4></li>
         {% for item in items %} 
         {% if session.user|lower == item.created_by|lower %}
-        <label class="list-group-item">
-          <input class="form-check-input me-1" type="checkbox" value="">
-          {{ item.item_name }}
-          <span><a class="btn btn-primary position-absolute top-0 end-0" href="{{ url_for('delete_item', item_id=item._id) }}" role="button">Delete</a></span>
-        </label>
-    </div>
-    {% endif %}
-    {% endfor %} 
-</div>
+        <li class="collection-item"><div>{{ item.item_name }}<a class="waves-effect waves-light btn secondary-content"
+            href="{{ url_for('delete_item', item_id=item._id) }}">Delete</a></div></li>
+        {% endif %}
+        {% endfor %} 
+      </ul>
 
-    <form method="POST" action="{{ url_for('add_item') }}">
-        <div class="mb-3 add_item">
-                <input id="item_name" name="item_name" placeholder="Add New Item" maxlength="50"
-                    type="text" class="validate" required>
-                <label for="item_name"></label>
-            <button type="submit" class="btn btn-primary">New Item</button>
+      <div class="row card-panel grey lighten-5">
+        <form class="col s12" method="POST" action="{{ url_for('add_item') }}">
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
+                    <input id="item_name" name="item_name"  maxlength="50" type="text" class="validate"
+                        required>
+                    <label for="item_name">New Item</label>
+                </div>
+            </div>
+            <button type="submit" class="btn-large light-blue darken-1 text-shadow">
+                New Item <i class="fas fa-plus-square right"></i>
+            </button>
+        </form>
         </div>
 
-      </form>
-      <a class="btn btn-primary" href="{{ url_for('delete_all') }}" role="button">Delete All</a>
+        <!-- Modal Trigger -->
+  <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Delete All</a>
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+        <h4>Are you Sure you want to delete?</h4>
+        <p>Your list will be permanently removed from the database</p>
+    </div>
+    <div class="modal-footer">
+      <a href="{{ url_for('delete_all') }}" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+      <a href="{{ url_for('get_items') }}" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
+    </div>
+  </div>
+          
+      
     </div>
     
 
