@@ -9,6 +9,11 @@ body {
   background-size: cover;
 }
 
+/* ----------------------------------------Items */
+
+h1{
+    text-align: center;
+}
 /* ----------------------------------------Flash messages */
 .flashes h4 {
     margin: 0;

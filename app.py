@@ -120,15 +120,13 @@ def delete_item(item_id):
     return redirect(url_for("get_items"))
 
 
-@app.route("/delete_all")
+@app.route('/delete_all')
 def delete_all():
-    mongo.db.items.delete_many()
-    flash("Item Successfully Deleted")
-    return redirect(url_for("get_items"))
+    mongo.db.items.delete_many({})
+    return redirect(url_for('get_items'))
 
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
             debug=True)
-            
