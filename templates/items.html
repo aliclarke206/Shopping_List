@@ -1,56 +1,47 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="container">
-    <ul class="collection with-header box_style">
-        <li class="collection-header center-align"><h4>Shopping List</h4></li>
-        {% for item in items %} 
-        {% if session.user|lower == item.created_by|lower %}
-        <li class="collection-item">
-            <div>{{ item.item_name }}<a class="waves-effect waves-light btn"
-            href="{{ url_for('delete_item', item_id=item._id) }}">Delete</a></div></li>
-        {% endif %}
-        {% endfor %} 
-      </ul>
-      
-      <div class="row card-panel grey lighten-5 box_style center-align">
-        <form class="col s12" method="POST" action="{{ url_for('add_item') }}">
-            <div class="row">
-                <div class="input-field col s12">
-                    <input id="item_name" name="item_name"  maxlength="50" type="text" class="validate"
-                        required>
-                    <label for="item_name"> Add new item</label>
-                </div>
+   <ul class="collection with-header box_style">
+      <li class="collection-header center-align">
+         <h4>Shopping List</h4>
+      </li>
+      {% for item in items %} 
+      {% if session.user|lower == item.created_by|lower %}
+      <li class="collection-item">
+         <div>{{ item.item_name }}<a class="waves-effect waves-light btn"
+            href="{{ url_for('delete_item', item_id=item._id) }}">Delete</a></div>
+      </li>
+      {% endif %}
+      {% endfor %} 
+   </ul>
+   <div class="row card-panel grey lighten-5 box_style center-align">
+      <form class="col s12" method="POST" action="{{ url_for('add_item') }}">
+         <div class="row">
+            <div class="input-field col s12">
+               <input id="item_name" name="item_name"  maxlength="50" type="text" class="validate"
+                  required>
+               <label for="item_name"> Add new item</label>
             </div>
-                <button type="submit" class="btn waves-effect waves-light text-shadow">
-                New Item <i class="fas fa-plus-square right"></i>
-            </button>
-            
-        </form>
-        </div>
-  
-
-    
-
-        <!-- Modal Trigger -->
-        <div class="center-align">
-            <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Delete All</a>
-        </div>
-  
-
-  <!-- Modal Structure -->
-  <div id="modal1" class="modal">
-    <div class="modal-content">
-        <h4>Are you Sure you want to delete?</h4>
-        <p>Your list will be permanently removed from the database</p>
-    </div>
-    <div class="modal-footer">
-      <a href="{{ url_for('delete_all') }}" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-      <a href="{{ url_for('get_items') }}" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
-    </div>
-  </div>
-          
-      
-    </div>
-    
-
+         </div>
+         <button type="submit" class="btn waves-effect waves-light text-shadow">
+         New Item <i class="fas fa-plus-square right"></i>
+         </button>
+      </form>
+   </div>
+   <!-- Modal Trigger -->
+   <div class="center-align">
+      <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Delete All</a>
+   </div>
+   <!-- Modal Structure -->
+   <div id="modal1" class="modal">
+      <div class="modal-content">
+         <h4>Are you Sure you want to delete?</h4>
+         <p>Your list will be permanently removed from the database</p>
+      </div>
+      <div class="modal-footer">
+         <a href="{{ url_for('delete_all') }}" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+         <a href="{{ url_for('get_items') }}" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
+      </div>
+   </div>
+</div>
 {% endblock %}
