@@ -1,12 +1,14 @@
 # Shopping List
 This is a simple Webapp designed to help the user keep track of a shopping list. Users can log into their own account to delete and update their list as they go. 
 ## Features
+The user is easily able to login to their own profile. They can add items, delete individual items and also delete the entire list. Users are able to log in, login out and also register for a new account. The app is also responsive to different screens sizes. 
 ### Features to still implement
 
 * Google Auth- I tried to use Google Auth which I have never used before but unfortunately I just keep getting errors with my code so I decided to use an alternative method to enable me to move on with the project and use my time more efficently. 
-* CheckBox Function - So users could tick off what items already been got. 
+* CheckBox Function - So users could tick off items. 
+* A better UX design throughout the web app if time permitted. 
 ## Technologies Used
-### LAnguages,Frameworks, Libraries & Programs Used
+### Languages,Frameworks, Libraries & Programs Used
 1. CSS programming language
 2. HTML programming language
 3. Python programming language
@@ -37,10 +39,13 @@ To help extend templates and iterate through objects.
 The database to store data
 17. [Fontawesome](https://fontawesome.com/)
 For Icon in add item
+18. [Flask](https://flask.palletsprojects.com/en/2.0.x/)
+The framework used to help build the python code
+19. [Pymongo](https://pypi.org/project/pymongo/)
+To help work with MongoDB
 ## Deployment
 The source code for this website was deployed and stored in a GitHub repository while the website application is hosted by Heroku at this [link](https://ac89-shopping-list.herokuapp.com/).
 ## Credits
 ### Media
 * The background image for the site can be found at this [website](https://unsplash.com/s/photos/online-shopping). 
-### Known Bugs
-Adding an item without being logged in. 
+

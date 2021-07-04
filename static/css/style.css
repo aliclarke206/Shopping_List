@@ -45,6 +45,12 @@ body {
     position: absolute;
     right: 0;
 }
+
+.collection .collection-item:last-child{
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+/* ----------------------------------------login and register */
 .charatcer_help {
     font-weight: lighter;
     font-size: .8rem;
@@ -53,3 +59,4 @@ body {
 .form-label{
     font-size: 1.2rem;
 }
+

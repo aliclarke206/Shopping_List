@@ -1,4 +1,0 @@
-#!/bin/bash
-
-export GOOGLE_CLIENT_ID=145477959027-3chnf3tqesl550juar7k5gq7fks304b3.apps.googleusercontent.com
-export GOOGLE_CLIENT_SECRET=uwNFAlHAo1qMd_oti3txR0OO
