@@ -113,14 +113,6 @@ def add_item():
     return render_template("items.html")
 
 
-@app.route('/complete/<item_id>')
-def complete(item_id):
-    bought_item = mongo.db.items.find_one({'_id': ObjectId(item_id)})
-    bought_item['on'] = True
-    mongo.db.items.save(bought_item)
-    return redirect(url_for('get_items'))
-
-
 @app.route("/delete_item/<item_id>")
 def delete_item(item_id):
     mongo.db.items.delete_one({"_id": ObjectId(item_id)})
@@ -130,7 +122,7 @@ def delete_item(item_id):
 
 @app.route('/delete_all')
 def delete_all():
-    mongo.db.items.delete_many({})
+    mongo.db.items.delete_many({"created_by": session["user"]})
     return redirect(url_for('get_items'))
 
 
