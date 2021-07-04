@@ -44,4 +44,3 @@ The source code for this website was deployed and stored in a GitHub repository 
 * The background image for the site can be found at this [website](https://unsplash.com/s/photos/online-shopping). 
 ### Known Bugs
 Adding an item without being logged in. 
-When you delete all, you delete all users items. 

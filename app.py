@@ -51,7 +51,7 @@ def login():
 
 @app.route("/get_items")
 def get_items():
-    items = mongo.db.items.find()
+    items = mongo.db.items.find({"created_by": session["user"]})
     return render_template("items.html", items=items)
 
 
@@ -115,7 +115,7 @@ def add_item():
 
 @app.route("/delete_item/<item_id>")
 def delete_item(item_id):
-    mongo.db.items.delete_one({"_id": ObjectId(item_id)})
+    mongo.db.items.delete_one({"created_by": session["user"]})
     flash("Item Successfully Deleted")
     return redirect(url_for("get_items"))
 

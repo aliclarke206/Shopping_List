@@ -45,3 +45,11 @@ body {
     position: absolute;
     right: 0;
 }
+.charatcer_help {
+    font-weight: lighter;
+    font-size: .8rem;
+}
+
+.form-label{
+    font-size: 1.2rem;
+}
