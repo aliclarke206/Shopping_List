@@ -9,11 +9,6 @@ body {
   background-size: cover;
 }
 
-/* ----------------------------------------Items */
-
-h1{
-    text-align: center;
-}
 /* ----------------------------------------Flash messages */
 .flashes h4 {
     margin: 0;
@@ -25,7 +20,17 @@ h1{
     text-align: center;
 }
 
-/* ----------------------------------------Add item */
-.add_item button{
-    display: inline;
+.box_style{
+    opacity: 0.9;
+    border-radius: 25px;
+    border: none;
+    padding-bottom: 20px;
 }
+
+.btn{
+    border-radius: 25px;
+}
+
+ .add_item button{
+    display: inline;
+ }

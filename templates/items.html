@@ -1,9 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>Shopping List</h1>
 <div class="container">
-    <ul class="collection with-header">
-        <li class="collection-header"><h4>Shopping List</h4></li>
+    <ul class="collection with-header box_style">
+        <li class="collection-header center-align"><h4>Shopping List</h4></li>
         {% for item in items %} 
         {% if session.user|lower == item.created_by|lower %}
         <li class="collection-item"><div>{{ item.item_name }}<a class="waves-effect waves-light btn secondary-content"
@@ -11,25 +10,31 @@
         {% endif %}
         {% endfor %} 
       </ul>
-
-      <div class="row card-panel grey lighten-5">
+      
+      <div class="row card-panel grey lighten-5 box_style center-align">
         <form class="col s12" method="POST" action="{{ url_for('add_item') }}">
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
                     <input id="item_name" name="item_name"  maxlength="50" type="text" class="validate"
                         required>
-                    <label for="item_name">New Item</label>
+                    <label for="item_name"> Add new item</label>
                 </div>
             </div>
-            <button type="submit" class="btn-large light-blue darken-1 text-shadow">
+                <button type="submit" class="btn waves-effect waves-light text-shadow">
                 New Item <i class="fas fa-plus-square right"></i>
             </button>
+            
         </form>
         </div>
+  
+
+    
 
         <!-- Modal Trigger -->
-  <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Delete All</a>
+        <div class="center-align">
+            <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Delete All</a>
+        </div>
+  
 
   <!-- Modal Structure -->
   <div id="modal1" class="modal">
