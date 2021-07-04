@@ -34,3 +34,13 @@ body {
  .add_item button{
     display: inline;
  }
+
+ .collection .collection-item{
+     padding-bottom: 25px;
+ }
+
+.collection-item a{
+    display: inline;
+    position: absolute;
+    right: 0;
+}

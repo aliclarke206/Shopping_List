@@ -1,7 +1,10 @@
 # Shopping List
+This is a simple Webapp designed to help the user keep track of a shopping list. Users can log into their own account to delete and update their list as they go. 
 ## Features
 ### Features to still implement
-I tried to use Google Auth which I have never used before but unfortunately I just keep getting errors with my code so I decided to use an alternative method to enable me to use my time more efficently. 
+
+* Google Auth- I tried to use Google Auth which I have never used before but unfortunately I just keep getting errors with my code so I decided to use an alternative method to enable me to move on with the project and use my time more efficently. 
+* CheckBox Function - So users could tick off what items already been got. 
 ## Technologies Used
 ## Deployment
 ## Credits
